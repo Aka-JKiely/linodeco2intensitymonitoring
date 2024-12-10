@@ -5,7 +5,7 @@ EMAPS_API_TOKEN="INSERT_ELECTRICTY_MAPS_API_KEY_HERE"
 INFLUXDB_URL="http://127.0.0.1:8086"
 INFLUXDB_TOKEN="INSERT_INFLUXDB_API_KEY_HERE"
 INFLUXDB_ORG="Akamai"
-CSV_FILE="linode_akamai_locations_grid.csv"
+CSV_FILE="/scripts/co2intensitymonitoring/linode_akamai_locations_grid.csv"
 
 # Function to check if a bucket exists in InfluxDB
 check_and_create_bucket() {
