@@ -17,5 +17,5 @@ Here are list of the files contained and there are usage:
 
 
 EmissionsDashboardSample.png
-![Alt text](images/EmissionsDashboardSample.png)
+![Alt text](EmissionsDashboardSample.png)
 
