@@ -26,10 +26,20 @@ The dashboard LinodeCO2EmissionsDashboard.json gives an example of a few graphs 
 EmissionsDashboardSample.png
 ![Alt text](EmissionsDashboardSample.png)
 
+
+!!Firewall Requirements 
+
+In order to access the deployment there are number of ports in use 
+
+InfluxDB - Port 8086 
+Grafana - Port 3000
+SSH - Port 22 (required for command line access to the instance) 
+
+
 Some known limitations 
 
-- This is using the free tier of Electricity Maps which only provides the current live data for forecasted CO2 Intensity of the grids it is required to have a paid for subscription to Electricity Maps API
+- This is using the free tier of Electricity Maps which only provides the current live data for forecasted CO2 Intensity of the grids it is required to have a paid for subscription to Electricity Maps API https://www.electricitymaps.com/free-tier-api 
 - Some grids and Akamai Cloud Compute Locations do not have real time CO2 intensity information, example Jakarta, IN
-- 
+  
 
 
