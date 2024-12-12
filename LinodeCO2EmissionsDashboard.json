@@ -24,8 +24,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -106,8 +105,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-southeast\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r.location == \"Southern Company Services\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -118,8 +116,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -181,8 +178,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-southeast\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r.location == \"Southern Company Services\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -193,8 +189,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -263,8 +258,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "\nfrom(bucket: \"us-southeast\")\n  |> range(start: -30d)  // Get all data over the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> group()  // Group all data together (remove any subgrouping)\n  |> stddev(column: \"_value\")  // Calculate the standard deviation for the entire dataset\n  |> map(fn: (r) => ({\n      r with three_sigma: r._value * 3.0  // Multiply standard deviation by 3 to get 3-sigma\n  }))\n  |> keep(columns: [\"three_sigma\"])  // Only keep the 3-sigma value\n  |> yield(name: \"three_sigma\")\n\nfrom(bucket: \"us-southeast\")\n  |> range(start: -30d)  // Get data for the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)  // Aggregate data by day\n  |> group()\n  |> mean(column: \"_value\")  // Calculate the mean CO2 intensity for the last 30 days\n  |> yield(name: \"30_day_average\")\n\n",
           "refId": "A"
@@ -275,8 +269,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -356,8 +349,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-southeast\")\n  |> range(start: -30d)  // Adjust time range as needed\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -368,8 +360,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -450,8 +441,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"eu-west\")\n  |> range(start: -30d)  // Adjust time range as needed\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -462,8 +452,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -524,8 +513,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"eu-west\")\n  |> range(start: -30d)  // Adjust time range as needed\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -536,8 +524,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -602,8 +589,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"eu-west\")\n  |> range(start: -30d)  // Get data for the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)  // Aggregate data by day\n  |> group()\n  |> mean(column: \"_value\")  // Calculate the mean CO2 intensity for the last 30 days\n  |> yield(name: \"30_day_average\")\n\nfrom(bucket: \"eu-west\")\n  |> range(start: -30d)  // Get all data over the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> group()  // Group all data together (remove any subgrouping)\n  |> stddev(column: \"_value\")  // Calculate the standard deviation for the entire dataset\n  |> map(fn: (r) => ({\n      r with three_sigma: r._value * 3.0  // Multiply standard deviation by 3 to get 3-sigma\n  }))\n  |> keep(columns: [\"three_sigma\"])  // Only keep the 3-sigma value\n  |> yield(name: \"three_sigma\")\n",
           "refId": "A"
@@ -614,8 +600,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -699,8 +684,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"eu-west\")\n  |> range(start: -30d)  // Adjust time range as needed\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -711,8 +695,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -793,8 +776,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-central\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r.location == \"Electric Reliability Council of Texas\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -805,8 +787,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -868,8 +849,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-central\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r.location == \"Electric Reliability Council of Texas\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -880,8 +860,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -950,8 +929,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-central\")\n  |> range(start: -30d)  // Get data for the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)  // Aggregate data by day\n  |> group()\n  |> mean(column: \"_value\")  // Calculate the mean CO2 intensity for the last 30 days\n  |> yield(name: \"30_day_average\")\n\nfrom(bucket: \"us-central\")\n  |> range(start: -30d)  // Get all data over the last 30 days\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> group()  // Group all data together (remove any subgrouping)\n  |> stddev(column: \"_value\")  // Calculate the standard deviation for the entire dataset\n  |> map(fn: (r) => ({\n      r with three_sigma: r._value * 3.0  // Multiply standard deviation by 3 to get 3-sigma\n  }))\n  |> keep(columns: [\"three_sigma\"])  // Only keep the 3-sigma value\n  |> yield(name: \"three_sigma\")\n",
           "refId": "A"
@@ -962,8 +940,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
@@ -1043,8 +1020,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "advzufl3a96o0c"
+            "type": "influxdb"
           },
           "query": "from(bucket: \"us-central\")\n  |> range(start: -30d)  // Adjust time range as needed\n  |> filter(fn: (r) => r._measurement == \"co2_intensity\")\n  |> filter(fn: (r) => r._field == \"value\")\n  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -1055,8 +1031,7 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "fe6fbec4u718gc"
+        "type": "influxdb"
       },
       "fieldConfig": {
         "defaults": {
