@@ -32,7 +32,9 @@ EmissionsDashboardSample.png
 In order to access the deployment there are number of ports in use 
 
 InfluxDB - Port 8086 
+
 Grafana - Port 3000
+
 SSH - Port 22 (required for command line access to the instance) 
 
 
