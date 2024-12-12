@@ -27,7 +27,7 @@ EmissionsDashboardSample.png
 ![Alt text](EmissionsDashboardSample.png)
 
 
-!!Firewall Requirements 
+Firewall Requirements 
 
 In order to access the deployment there are number of ports in use 
 
