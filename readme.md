@@ -18,7 +18,7 @@ Here are list of the files contained and there are usage:
 
 ## How it works 
 
-The fetch_co2_data.sh is scheduled to run every half an hour to collect data from Electricity Maps API, the actual update to Electricity Maps data is currently every hour. The data is placed in buckets in the InfluxDB instance according to the Linode given name for a location example us-southeast as per the Linode API. 
+The fetch_co2_data.sh is scheduled to run every hour in crontab to collect data from Electricity Maps API, updates to Electricity Maps data are currently every hour. The data is placed in buckets in the InfluxDB instance according to the Linode given name for a location example us-southeast as per the Linode API. 
 The dashboard LinodeCO2EmissionsDashboard.json gives an example of a few graphs for some locations, simply copy the charts and make new ones for new locations by modifying the bucket that is being queried and also changing the title on the charts to reflect the bucket change. 
 
 
