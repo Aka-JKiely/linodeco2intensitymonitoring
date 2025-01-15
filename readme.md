@@ -23,9 +23,40 @@ The fetch_co2_data.sh is scheduled to run every hour in crontab to collect data 
 The dashboard LinodeCO2EmissionsDashboard.json gives an example of a few graphs for some locations, simply copy the charts and make new ones for new locations by modifying the bucket that is being queried and also changing the title on the charts to reflect the bucket change. 
 linode_akamai_locations_grid.csv is a mapping between the regions in Electricity Maps and the Akamai Core Cloud Compute locations. 
 
-Here is a list of 15/1/25 of the sites and the corresponding buckets 
+Here is a list of 15/1/25 of the sites and the corresponding buckets.
+This list is maintained in linode_akamai_locations_grid.csv
+The bucket uses the standard Linode Location ID in the first column below. 
 
-
+Location	Country Code	ZoneName	DisplayName
+us-southeast	US	Southern Company Services	US-SE-SOCO
+us-ord	US	PJM interconnection	US-MIDA-PJM
+us-central	US	Electric Reliability Council of Texas	US-TEX-ERCO
+us-west	US	California ISO	US-CAL-CISO
+us-lax	US	California ISO	US-CAL-CISO
+us-mia	US	City of Homestead	US-FLA-HST
+us-east	US	PJM interconnection	US-MIDA-PJM
+us-sea	US	Puget Sound Energy	US-NW-PSEI
+us-iad	US	PJM interconnection	US-MIDA-PJM
+ca-central	CA	Ontario	CA-ON
+nl-ams	NL	Netherlands	NL
+it-mil	IT	Central North Italy	IT-CNO
+eu-west	UK	Great Britain	GB
+gb-lon	UK	Great Britain	GB
+fr-par	FR	France	FR
+es-mad	ES	Spain	ES
+eu-central	DE	Germany	DE
+de-fra-2	DE	Germany	DE
+se-sto	SE	South Central Sweden	SE-SE3
+sg-sin-2	SG	Singapore	SG
+jp-osa	JP	Kansai	JP-KN
+ap-northeast	JP	Tokyo	JP-TK
+jp-tyo-3	JP	Tokyo	JP-TK
+in-maa	IN	Southern India	IN-SO
+in-bom-2	IN	Western India	IN-WE
+id-cgk	ID	Indonesia	ID
+br-gru	BR	South Brazil	BR-S
+ap-southeast	AU	New South Wales	AU-NSW
+au-mel	AU	Victoria	AU-VIC
 
 
 EmissionsDashboardSample.png
