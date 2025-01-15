@@ -23,6 +23,9 @@ The fetch_co2_data.sh is scheduled to run every hour in crontab to collect data 
 The dashboard LinodeCO2EmissionsDashboard.json gives an example of a few graphs for some locations, simply copy the charts and make new ones for new locations by modifying the bucket that is being queried and also changing the title on the charts to reflect the bucket change. 
 linode_akamai_locations_grid.csv is a mapping between the regions in Electricity Maps and the Akamai Core Cloud Compute locations. 
 
+Here is a list of 15/1/25 of the sites and the corresponding buckets 
+
+
 
 
 EmissionsDashboardSample.png
