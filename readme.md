@@ -64,6 +64,18 @@ The influxDB bucket uses the standard Linode Location ID in the first column bel
 EmissionsDashboardSample.png
 ![Alt text](EmissionsDashboardSample.png)
 
+THe sample dashboard can be modified with new charts for different locations, just copy the chart and change the InfuxDB bucket with the desired new location, eu-west as an example here:
+
+### Example Flux Query
+
+```flux
+from(bucket: "**`eu-west`**")
+  |> range(start: -30d)  // Adjust time range as needed
+  |> filter(fn: (r) => r._measurement == "co2_intensity")
+  |> filter(fn: (r) => r._field == "value")
+  |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals
+  |> yield(name: "mean")
+
 
 ## Linode Firewall Requirements 
 
