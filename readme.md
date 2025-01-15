@@ -25,7 +25,7 @@ linode_akamai_locations_grid.csv is a mapping between the regions in Electricity
 
 Here is a list of 15/1/25 of the sites and the corresponding buckets.
 This list is maintained in linode_akamai_locations_grid.csv
-The bucket uses the standard Linode Location ID in the first column below. 
+The influxDB bucket uses the standard Linode Location ID in the first column below. 
 
 | Location       | Country Code | Zone Name                          | Display Name   |
 |----------------|--------------|------------------------------------|----------------|
