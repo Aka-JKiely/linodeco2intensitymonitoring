@@ -75,6 +75,7 @@ from(bucket: "**`eu-west`**")
   |> filter(fn: (r) => r._field == "value")
   |> aggregateWindow(every: 5m, fn: mean, createEmpty: false)  // Aggregate by 5-minute intervals
   |> yield(name: "mean")
+```
 
 
 ## Linode Firewall Requirements 
