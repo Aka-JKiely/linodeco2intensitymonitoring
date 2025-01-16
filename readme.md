@@ -111,9 +111,9 @@ INFLUXDB_TOKEN="INSERT_INFLUXDB_API_KEY_HERE"
 INFLUXDB_ORG="Akamai"
 CSV_FILE="/scripts/co2intensitymonitoring/linode_akamai_locations_grid.csv"
 to the Electricity Maps API Token key and also the InfluxDB Token Key and the InfluxDB Org if different from default "Akamai" in the script.
-16. Test the script at the command line:
-17. Check InfluxDB buckets for data
-18. Refresh charts in Grafana to see data points in preconfigured sample locations
+16. Test the script at the command line: bash -x fetch_co2_data.sh
+17. Check crontab (crontab -l: */30 * * * * /scripts/co2intensitymonitoring/fetch_co2_data.sh) Check InfluxDB buckets for data
+18. Refresh charts in Grafana to see data points in preconfigured sample locations.
 19. Add new charts by copying and pasting and modifying bucket name to get desired Linode locations.
     
 
