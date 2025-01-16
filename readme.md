@@ -2,11 +2,6 @@
 
 This repo contains the colleteral necessary to deploy your own CO2 Electricty Grid Intensity monitor for Akamai Cloud Computing. 
 
-More details available on this resources:
-
-Blog Post link: 
-Youtube Instructional Video Link: 
-
 Here are list of the files contained and there are usage: 
 
 1) readme.readme - This file here :) 
@@ -18,7 +13,7 @@ Here are list of the files contained and there are usage:
 
 ## How it works 
 
-Follow the instructional video which shows how to run the stackscript which will setup the basic Grafana and InfluxDB stack. 
+Follow the instructions below which how to run the stackscript which will setup the basic Grafana and InfluxDB stack. 
 The fetch_co2_data.sh is scheduled to run every hour in crontab to collect data from Electricity Maps API, updates to Electricity Maps data are currently every hour. The data is placed in buckets in the InfluxDB instance according to the Linode given name for a location example us-southeast as per the Linode API. 
 The dashboard LinodeCO2EmissionsDashboard.json gives an example of a few graphs for some locations, simply copy the charts and make new ones for new locations by modifying the bucket that is being queried and also changing the title on the charts to reflect the bucket change. 
 linode_akamai_locations_grid.csv is a mapping between the regions in Electricity Maps and the Akamai Core Cloud Compute locations. 
