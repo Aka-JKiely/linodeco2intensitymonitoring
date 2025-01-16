@@ -88,6 +88,34 @@ Grafana - Port 3000
 
 SSH - Port 22 (required for command line access to the instance) 
 
+## How to Deploy 
+
+1. Find the stackscript called AkamaiConnectedCloudElectricityEmissionsTracker
+2. Select Deploy new Linode
+3. Enter various passowrd and username entries, select a shared instance type shared CPU, a nanode is enough resources. VPC and VLAN is not required. Backup is optional. Select a infosec complaint firewall. 
+4. Allow the Linode to provision and then note the Public IP address on the node that has been assigned
+5. Using the public IP provisioned on the Linode first login to the InfluxDB instance to provision using a browser e.g. X.X.X.X:8086 (make sure the Linode Firewall allows access from your public IP to port 8086 on your laptop whatsmpip.org) 
+6. Click Get Started and setup a username, password, Initial Org Name and Initial Bucket Name for the InfluxDB instance
+7. Copy the API token key provided by the InfluxDB instance
+8. Next login to the Grafana Instance on the same public provisioned on your Linode instance on port 3000 X.X.X.X:3000 enter username/password configured during stackscript provisioning
+9. Click Connections on the left hand menu and select Add New Connection, search for InfluxDB and "add new data source"
+10. On the InfluxDB DataSources select the following config 1) Query Language: Flux 2) HTTP URL http://127.0.0.1:8086 where X.X.X.X is the public of the linode instance 3) timeout 600 seconds 4) deselect basic auth 5) InflxuDB details Organisation configured on INfluxDB setup in step 6, Token API Token for InfluxDB got in Step 7 7) click save and test, you should recieve a message that says "datasource is working, 3 buckets found"
+11. Go to dashboards in Grafana and Click Create new Dashboard, then click import a dashboard, copy and paste the json code here: https://github.com/Aka-JKiely/co2intensitymonitoring/blob/main/LinodeCO2EmissionsDashboard.json, this should import a dashboard called Linode Regions CO2 Dashboard Overview
+12. Next ssh to the Public of the Linode instance and navigate to the directory /scripts/co2intensitymonitoring, there should be 2 files linode_akamai_locations_grid.csv and fetch_co2_data.sh
+13. Create an API key for Electricty Maps using this link: https://api-portal.electricitymaps.com/ using the free tier, email address required.
+14. Copy the contents of the script here in to fetch_co2_data.sh
+15. Modify the values here: # Configuration parameters
+EMAPS_API_TOKEN="INSERT_ELECTRICTY_MAPS_API_KEY_HERE"
+INFLUXDB_URL="http://127.0.0.1:8086"
+INFLUXDB_TOKEN="INSERT_INFLUXDB_API_KEY_HERE"
+INFLUXDB_ORG="Akamai"
+CSV_FILE="/scripts/co2intensitymonitoring/linode_akamai_locations_grid.csv"
+to the Electricity Maps API Token key and also the InfluxDB Token Key and the InfluxDB Org if different from default "Akamai" in the script.
+16. Test the script at the command line:
+17. Check InfluxDB buckets for data
+18. Refresh charts in Grafana to see data points in preconfigured sample locations
+19. Add new charts by copying and pasting and modifying bucket name to get desired Linode locations.
+    
 
 ## Some known limitations 
 
