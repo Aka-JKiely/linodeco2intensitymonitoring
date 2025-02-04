@@ -30,7 +30,7 @@ The influxDB bucket uses the standard Linode Location ID in the first column bel
 | us-west        | US           | California ISO                     | US-CAL-CISO    |
 | us-lax         | US           | California ISO                     | US-CAL-CISO    |
 | us-mia         | US           | City of Homestead                  | US-FLA-HST     |
-| us-east        | US           | PJM interconnection                | US-MIDA-PJM    |
+| us-east        | US           | New York ISO                       | US-NY-NYIS    |
 | us-sea         | US           | Puget Sound Energy                 | US-NW-PSEI     |
 | us-iad         | US           | PJM interconnection                | US-MIDA-PJM    |
 | ca-central     | CA           | Ontario                            | CA-ON          |
